@@ -61,3 +61,17 @@ def addHighScoreDouble(initials1, initials2, score):
             initials2 = tmpinitials2
             score = tmpscore
     writeRankingDouble(ranking)
+
+#############################################################3
+
+def resetRankingSingle():
+    ranking = readRankingSingle()
+    for i in range(1,len(ranking)+1,1):
+        ranking.pop(str(i))
+    writeRankingSingle(ranking)
+
+def resetRankingDouble():
+    ranking = readRankingDouble()
+    for i in range(1, len(ranking) + 1, 1):
+        ranking.pop(str(i))
+    writeRankingDouble(ranking)
