@@ -12,7 +12,9 @@ class Game:
 
     def main_loop(self):
         while True:
-            self._handle_input()
+            keys = pygame.key.get_pressed()
+
+            self._handle_input(keys)
             self._process_game_logic()
             self._draw()
 

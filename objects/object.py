@@ -10,9 +10,7 @@ class GameObject:
         self.width = 40
 
     def draw(self, surface):
-        # blit_position = self.position - Vector2(self.radius)
-        # surface.blit(self.sprite, blit_position)
-        pygame.draw.rect(surface, "green", pygame.Rect(0,0, self.height, self.width))
+        pass
 
     def move(self):
         self.position = self.position + self.velocity
