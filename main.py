@@ -30,5 +30,6 @@ pygame.display.set_caption("Asteroids")
 # rankingScreenDouble(SCREEN)
 main_menu(SCREEN)
 
-game = Game()
-game.main_loop()
+# You can use following two lines for testing:
+# game = Game()
+# game.main_loop()
