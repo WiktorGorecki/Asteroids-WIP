@@ -1,5 +1,28 @@
+import pygame
+
 from objects.object import GameObject
 
 class Spaceship(GameObject):
-    def __init__(self, position, ):
-        super().__init__(position, Vector2(0))
+    def __init__(self, position, velocity):
+        GameObject.__init__(self, position, velocity)
+        self.keyUp = pygame.K_UP
+        self.keyDown = pygame.K_DOWN
+        self.keyLeft = pygame.K_LEFT
+        self.keyRight = pygame.K_RIGHT
+
+    def draw(self, surface):
+        # blit_position = self.position - Vector2(self.radius)
+        # surface.blit(self.sprite, blit_position)
+        pygame.draw.rect(surface, "green", pygame.Rect(0,0, self.height, self.width))
+
+
+    def move(self, keys):
+        print(self.velocity)
+        if keys[self.keyUp]:
+            self.position[1] -= self.velocity[1]
+        elif keys[self.keyDown]:
+            self.position[1] += self.velocity[1]
+        elif keys[self.keyLeft]:
+            self.position[0] -= self.velocity[0]
+        elif keys[self.keyRight]:
+            self.position[0] += self.velocity[0]
