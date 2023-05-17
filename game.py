@@ -9,14 +9,15 @@ class Game:
         self.spaceship = Spaceship((400, 300), (3,3))
         self.spaceship2 = Spaceship((600, 300), (3,3))
         self.keyPressed = []
+        self.asteroids = []
 
     def main_loop(self):
         while True:
             keys = pygame.key.get_pressed()
-
             self._handle_input(keys)
             self._process_game_logic()
             self._draw()
+
 
     def _init_pygame(self):
         pygame.init()

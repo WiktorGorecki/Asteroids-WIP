@@ -27,7 +27,6 @@ SCREEN = pygame.display.set_mode((settings["width"], settings["height"]), flags,
 SCREEN.set_alpha(None)  # No alpha channel
 pygame.display.set_caption("Asteroids")
 
-# addHighScore("BBB", 123)
 
 game = Game()
 game.main_loop()

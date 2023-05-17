@@ -4,6 +4,7 @@ from objects.object import GameObject
 
 class Spaceship(GameObject):
     def __init__(self, position, velocity):
+        print("Debug: Creating new Spaceship object")
         GameObject.__init__(self, position, velocity)
         self.keyUp = pygame.K_UP
         self.keyDown = pygame.K_DOWN

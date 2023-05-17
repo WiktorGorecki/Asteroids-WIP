@@ -1,11 +1,11 @@
 from utils.jsonHandler import readJSON, writeJSON
 
 
-def writeRanking(toWrite):
-    writeJSON("./ranking.json", toWrite)
+def writeRankingSingle(toWrite):
+    writeJSON("./rankingSingle.json", toWrite)
 
-def readRanking():
-    return readJSON("./ranking.json")
+def readRankingSingle():
+    return readJSON("./rankingSingle.json")
 
 def rankingSingleLenghtCheck():
     ranking = readRankingSingle()
