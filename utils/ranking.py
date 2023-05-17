@@ -1,24 +1,23 @@
 from utils.jsonHandler import readJSON, writeJSON
 
 
-
 def writeRanking(toWrite):
     writeJSON("./ranking.json", toWrite)
 
 def readRanking():
     return readJSON("./ranking.json")
 
-def rankingLenghtCheck():
-    ranking = readRanking()
+def rankingSingleLenghtCheck():
+    ranking = readRankingSingle()
     if len(ranking) < 10:
         for i in range(len(ranking)+1,11,1):
             nullscore = {"initials": "NUL", "score": 000}
             ranking[str(i)] = nullscore
-        writeRanking(ranking)
+        writeRankingSingle(ranking)
 
-def addHighScore(initials, score):
-    rankingLenghtCheck()
-    ranking = readRanking()
+def addHighScoreSingle(initials, score):
+    rankingSingleLenghtCheck()
+    ranking = readRankingSingle()
     for i in ranking:
         if score > ranking[i]["score"]:
             tmpinitials = ranking[i]["initials"]
@@ -27,4 +26,4 @@ def addHighScore(initials, score):
             ranking[i]["score"] = score
             initials = tmpinitials
             score = tmpscore
-    writeRanking(ranking)
+    writeRankingSingle(ranking)
