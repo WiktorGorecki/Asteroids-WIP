@@ -1,6 +1,7 @@
 import pygame
 from objects.object import GameObject
 from objects.spaceship import Spaceship
+# from objects.asteroid import Asteroid
 
 class Game:
     def __init__(self):
