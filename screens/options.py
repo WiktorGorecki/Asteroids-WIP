@@ -3,7 +3,6 @@ import sys
 import pygame
 
 from button import Button
-from config import config
 from utils.get_font import get_font
 from utils.settings import readSettings, writeSettings
 
@@ -14,10 +13,6 @@ def options(SCREEN):
         OPTIONS_MOUSE_POS = pygame.mouse.get_pos()
 
         SCREEN.fill("black")
-
-        # OPTIONS_TEXT = get_font(45).render("This is the OPTIONS screen.", True, config['TEXT_COLOR'])
-        # OPTIONS_RECT = OPTIONS_TEXT.get_rect(center=(640, 260))
-        # SCREEN.blit(OPTIONS_TEXT, OPTIONS_RECT)
 
         OPTIONS_BACK = Button(
             pos=(640, 460),
