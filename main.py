@@ -4,6 +4,7 @@ from pygame import QUIT, KEYDOWN, MOUSEBUTTONDOWN, FULLSCREEN, DOUBLEBUF, SCALED
 
 from game import Game
 from utils.settings import readSettings
+from utils.ranking import addHighScore
 
 pygame.init()
 
@@ -18,11 +19,13 @@ if settings["fullscreen"]:
 else:
     flags = SCALED | DOUBLEBUF  # Flags for window
 
+print("\nDebug: Creating game window")
+print("     -Running in "+str(settings["width"])+"x"+str(settings["height"])+" resolution")
+print("     -Display mode "+str(flags))
 # Screen initialisation
 SCREEN = pygame.display.set_mode((settings["width"], settings["height"]), flags, 1)
 SCREEN.set_alpha(None)  # No alpha channel
 pygame.display.set_caption("Asteroids")
-
 
 
 game = Game()
