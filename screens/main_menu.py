@@ -49,7 +49,7 @@ def main_menu(SCREEN):
                 if MULTIPLAYER_BUTTON.checkForInput(MENU_MOUSE_POS):
                     multiplayer(SCREEN)
                 if RANKING_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    from rankingScreenMain import rankingScreenMain
+                    from screens.rankingScreenMain import rankingScreenMain
                     rankingScreenMain(SCREEN)
                 if SETTINGS_BUTTON.checkForInput(MENU_MOUSE_POS):
                     options(SCREEN)

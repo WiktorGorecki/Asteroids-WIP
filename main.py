@@ -4,7 +4,7 @@ from pygame import QUIT, KEYDOWN, MOUSEBUTTONDOWN, FULLSCREEN, DOUBLEBUF, SCALED
 
 from game import Game
 from utils.settings import readSettings
-from screens.rankingScreenDouble import rankingScreenDouble
+from screens.main_menu import main_menu
 pygame.init()
 
 pygame.event.set_allowed([QUIT, KEYDOWN, MOUSEBUTTONDOWN])  # If you need event to be handled - add it to the list.
@@ -27,7 +27,8 @@ SCREEN = pygame.display.set_mode((settings["width"], settings["height"]), flags,
 SCREEN.set_alpha(None)  # No alpha channel
 pygame.display.set_caption("Asteroids")
 
-rankingScreenDouble(SCREEN)
+# rankingScreenDouble(SCREEN)
+main_menu(SCREEN)
 
 game = Game()
 game.main_loop()
