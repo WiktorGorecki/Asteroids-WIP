@@ -5,6 +5,7 @@ class Game:
     def __init__(self):
         self._init_pygame()
         self.screen = pygame.display.set_mode((800, 600))
+        # self.spaceship = Spaceship((400, 300))
         self.object = GameObject(
             (400, 300), (0, 0)
         )
@@ -17,7 +18,7 @@ class Game:
 
     def _init_pygame(self):
         pygame.init()
-        pygame.display.set_caption("Space Rocks")
+        pygame.display.set_caption("ASTEROIDS")
 
     def _handle_input(self):
         for event in pygame.event.get():
@@ -28,6 +29,7 @@ class Game:
 
     def _process_game_logic(self):
         pass
+        #self.spaceship.move()
 
     def _draw(self):
         # self.screen.blit(self.background, (0, 0))
