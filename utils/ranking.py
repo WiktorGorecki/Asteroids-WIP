@@ -1,5 +1,3 @@
-import pygame
-
 from utils.jsonHandler import readJSON, writeJSON
 
 
