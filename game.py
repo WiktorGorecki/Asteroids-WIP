@@ -7,7 +7,7 @@ class Game:
         self._init_pygame()
         self.screen = pygame.display.set_mode((800, 600))
         self.spaceship = Spaceship((400, 300), (3,3))
-
+        self.spaceship2 = Spaceship((600, 300), (3,3))
         self.keyPressed = []
 
     def main_loop(self):
@@ -28,6 +28,8 @@ class Game:
                 event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE
             ):
                 quit()
+
+        self.keyPressed = keys
 
     def _process_game_logic(self):
         self.spaceship.move(self.keyPressed)
