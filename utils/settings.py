@@ -10,6 +10,7 @@ def readSettings():
 def writeSettings(toWrite):
     writeJSON("./settings.json", toWrite)
 
+
 def refreshWindow(SCREEN):
     settings = readSettings()
     resized_screen = pygame.transform.scale(SCREEN, (settings["width"], settings["height"]))
