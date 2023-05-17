@@ -27,5 +27,6 @@ SCREEN.set_alpha(None)  # No alpha channel
 pygame.display.set_caption("Asteroids")
 
 
+
 game = Game()
 game.main_loop()
