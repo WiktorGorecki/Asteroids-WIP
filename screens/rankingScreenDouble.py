@@ -7,7 +7,7 @@ from utils.get_font import get_font
 from utils.ranking import readRankingSingle
 
 
-def rankingSHOW(SCREEN, gamemode):
+def rankingScreenDouble(SCREEN, gamemode):
     while 1:
         PLAY_MOUSE_POS = pygame.mouse.get_pos()
 
@@ -17,15 +17,11 @@ def rankingSHOW(SCREEN, gamemode):
         PLAY_RECT = PLAY_TEXT.get_rect(center=(640, 100))
         SCREEN.blit(PLAY_TEXT, PLAY_RECT)
 
-        if gamemode == "double":
-            highscoretable = readRankingDouble()
-        if gamemode == "single":
-            highscoretable = readRankingSingle()
-        for i in range(0,4,1):
-            for y in range(0,3,1):
-                RANK_TEXT = get_font(45).render(str(highscoretable[i][y]), True, "White")
-                RANK_RECT = RANK_TEXT.get_rect(center=(200+y*300, 160+i*50))
-                SCREEN.blit(RANK_TEXT, RANK_RECT)
+        highscoretable = readRankingDouble()
+        for i in range(1,11,1):
+            RANK_TEXT = get_font(45).render(str(highscoretable[i][y]), True, "White")
+            RANK_RECT = RANK_TEXT.get_rect(center=(200+y*300, 160+i*50))
+            SCREEN.blit(RANK_TEXT, RANK_RECT)
 
         MENU_BUTTON = Button(
             pos=(640, 500),

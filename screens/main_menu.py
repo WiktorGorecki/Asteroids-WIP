@@ -11,6 +11,7 @@ from utils.get_font import get_font
 
 def multiplayer(SCREEN):
     pass
+
 def singleplayer(SCREEN):
     pass
 
@@ -51,7 +52,8 @@ def main_menu(SCREEN):
                 if MULTIPLAYER_BUTTON.checkForInput(MENU_MOUSE_POS):
                     multiplayer(SCREEN)
                 if RANKING_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    ranking(SCREEN)
+                    from rankingScreenMain import rankingScreenMain
+                    rankingScreenMain(SCREEN)
                 if SETTINGS_BUTTON.checkForInput(MENU_MOUSE_POS):
                     options(SCREEN)
                 if QUIT_BUTTON.checkForInput(MENU_MOUSE_POS):
