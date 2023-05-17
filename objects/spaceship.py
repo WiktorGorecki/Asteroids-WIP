@@ -13,11 +13,11 @@ class Spaceship(GameObject):
     def draw(self, surface):
         # blit_position = self.position - Vector2(self.radius)
         # surface.blit(self.sprite, blit_position)
-        pygame.draw.rect(surface, "green", pygame.Rect(0,0, self.height, self.width))
+        pygame.draw.rect(surface, "green", pygame.Rect(self.position[0], self.position[1], self.height, self.width))
+        #pygame.draw.rect(surface, "green", self.position)
 
 
     def move(self, keys):
-        print(self.velocity)
         if keys[self.keyUp]:
             self.position[1] -= self.velocity[1]
         elif keys[self.keyDown]:

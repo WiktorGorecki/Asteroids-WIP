@@ -13,7 +13,7 @@ class GameObject:
         pass
 
     def move(self):
-        self.position = self.position + self.velocity
+        pass
 
     # def collides_with(self, other_obj):
     #     distance = self.position.distance_to(other_obj.position)
