@@ -14,4 +14,4 @@ def refreshWindow(SCREEN):
     settings = readSettings()
     resized_screen = pygame.transform.scale(SCREEN, (settings["width"], settings["height"]))
     SCREEN.blit(resized_screen, (0, 0))
-    return SCREENą
+    return SCREEN
