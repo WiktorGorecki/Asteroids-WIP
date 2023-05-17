@@ -3,7 +3,7 @@ import sys
 import pygame
 
 from button import Button
-from screens.game_mode import game_mode
+# from screens.game_mode import game_mode
 from screens.options import options
 from utils.get_font import get_font
 # from config import config
@@ -15,9 +15,6 @@ def multiplayer(SCREEN):
 def singleplayer(SCREEN):
     pass
 
-
-def ranking(SCREEN):
-    pass
 
 
 def main_menu(SCREEN):
