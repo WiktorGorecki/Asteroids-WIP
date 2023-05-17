@@ -1,9 +1,10 @@
+# Imports
 import pygame
 from pygame import QUIT, KEYDOWN, MOUSEBUTTONDOWN, FULLSCREEN, DOUBLEBUF, SCALED
 
 from game import Game
 from utils.settings import readSettings
-
+from screens.rankingScreenDouble import rankingScreenDouble
 pygame.init()
 
 pygame.event.set_allowed([QUIT, KEYDOWN, MOUSEBUTTONDOWN])  # If you need event to be handled - add it to the list.
@@ -11,15 +12,22 @@ pygame.event.set_allowed([QUIT, KEYDOWN, MOUSEBUTTONDOWN])  # If you need event 
 
 settings = readSettings()
 
+print("\nDebug: Creating game window")
+print("     -Resolution:    "+str(settings["width"])+"x"+str(settings["height"]))
+# Setting flags for screen option
 if settings["fullscreen"]:
-    flags = FULLSCREEN | DOUBLEBUF
+    print("     -Display mode:    " + str(" Fullscreen"))
+    flags = FULLSCREEN | DOUBLEBUF  # Flags for fullscreen
 else:
-    flags = SCALED | DOUBLEBUF
+    print("     -Display mode: " + str(" Scaled"))
+    flags = SCALED | DOUBLEBUF  # Flags for window
 
 # Screen initialisation
 SCREEN = pygame.display.set_mode((settings["width"], settings["height"]), flags, 1)
-SCREEN.set_alpha(None)
-pygame.display.set_caption("Pong")
+SCREEN.set_alpha(None)  # No alpha channel
+pygame.display.set_caption("Asteroids")
+
+rankingScreenDouble(SCREEN)
 
 game = Game()
 game.main_loop()
