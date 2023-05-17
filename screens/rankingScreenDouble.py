@@ -7,7 +7,7 @@ from utils.get_font import get_font
 from utils.ranking import readRankingDouble, writeRankingDouble, rankingDoubleLenghtCheck, resetRankingDouble
 
 
-def rankingScreenDouble(SCREEN, gamemode):
+def rankingScreenDouble(SCREEN):
     while 1:
         PLAY_MOUSE_POS = pygame.mouse.get_pos()
 
@@ -17,11 +17,24 @@ def rankingScreenDouble(SCREEN, gamemode):
         PLAY_RECT = PLAY_TEXT.get_rect(center=(640, 100))
         SCREEN.blit(PLAY_TEXT, PLAY_RECT)
 
-        highscoretable = readRankingDouble()
+        rankingDoubleLenghtCheck()
+        table = readRankingDouble()
         for i in range(1,11,1):
-            RANK_TEXT = get_font(45).render(str(highscoretable[i][y]), True, "White")
-            RANK_RECT = RANK_TEXT.get_rect(center=(200+y*300, 160+i*50))
+            RANK_TEXT = get_font(20).render(str(i), True, "White")
+            RANK_RECT = RANK_TEXT.get_rect(center=(150, 200+(i-1)*25))
             SCREEN.blit(RANK_TEXT, RANK_RECT)
+
+            INIT1_TEXT = get_font(20).render(table[str(i)]["initials1"], True, "White")
+            INIT1_RECT = INIT1_TEXT.get_rect(center=(450, 200 + (i - 1) * 25))
+            SCREEN.blit(INIT1_TEXT, INIT1_RECT)
+
+            INIT2_TEXT = get_font(20).render(table[str(i)]["initials2"], True, "White")
+            INIT2_RECT = INIT2_TEXT.get_rect(center=(750, 200 + (i - 1) * 25))
+            SCREEN.blit(INIT2_TEXT, INIT2_RECT)
+
+            SCORE_TEXT = get_font(20).render(str(table[str(i)]["score"]), True, "White")
+            SCORE_RECT = SCORE_TEXT.get_rect(center=(1050, 200 + (i - 1) * 25))
+            SCREEN.blit(SCORE_TEXT, SCORE_RECT)
 
         MENU_BUTTON = Button(
             pos=(640, 500),
