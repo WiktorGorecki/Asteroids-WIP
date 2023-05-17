@@ -16,6 +16,7 @@ def rankingSingleLenghtCheck():
         writeRankingSingle(ranking)
 
 def addHighScoreSingle(initials, score):
+    print("Debug: Adding highscore for singleplayer")
     rankingSingleLenghtCheck()
     ranking = readRankingSingle()
     for i in ranking:
