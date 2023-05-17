@@ -1,9 +1,13 @@
 import pygame
+from object import GameObject
 
 class Game:
     def __init__(self):
         self._init_pygame()
         self.screen = pygame.display.set_mode((800, 600))
+        self.object = GameObject(
+            (400, 300), (0, 0)
+        )
 
     def main_loop(self):
         while True:
@@ -26,5 +30,7 @@ class Game:
         pass
 
     def _draw(self):
-        self.screen.blit(self.background, (0, 0))
+        # self.screen.blit(self.background, (0, 0))
+        self.screen.fill("black")
+        self.object.draw(self.screen)
         pygame.display.flip()

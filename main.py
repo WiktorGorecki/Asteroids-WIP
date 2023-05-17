@@ -1,4 +1,8 @@
 import pygame
+from pygame import QUIT, KEYDOWN, MOUSEBUTTONDOWN, FULLSCREEN, DOUBLEBUF, SCALED
+
+from game import Game
+from utils.settings import readSettings
 
 pygame.init()
 
@@ -16,3 +20,6 @@ else:
 SCREEN = pygame.display.set_mode((settings["width"], settings["height"]), flags, 1)
 SCREEN.set_alpha(None)
 pygame.display.set_caption("Pong")
+
+game = Game()
+game.main_loop()
