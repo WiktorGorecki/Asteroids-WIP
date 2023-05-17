@@ -5,6 +5,8 @@ pygame.init()
 pygame.event.set_allowed([QUIT, KEYDOWN, MOUSEBUTTONDOWN])  # If you need event to be handled - add it to the list.
 # Only add these events, which are needed to save performance
 
+settings = readSettings()
+
 if settings["fullscreen"]:
     flags = FULLSCREEN | DOUBLEBUF
 else:
