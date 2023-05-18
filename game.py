@@ -10,9 +10,9 @@ class Game:
         asteroidImg = pygame.image.load("assets/asteroid2.svg")
         self._init_pygame()
         self.screen = pygame.display.set_mode((800, 600))
-        self.spaceship = Spaceship((400, 300), (2,2), shipImg)
+        self.spaceship = Spaceship((400, 300), (0.2,0.2), shipImg)
         self.keyPressed = []
-        self.asteroids = [Asteroid((400, 300), (1.1,1.1), asteroidImg)]
+        self.asteroids = [Asteroid((400, 300), (0.3,0.3), asteroidImg)]
         # self.asteroids = [Asteroid((0, 0)) for _ in range(6)]
 
     # def _get_game_objects(self):
@@ -56,7 +56,7 @@ class Game:
         # if self.message:
         #     print_text(self.screen, self.message, self.font)
 
-        # self.spaceship.draw(self.screen)
+        self.spaceship.draw(self.screen)
         for asteroid in self.asteroids:
             asteroid.draw(self.screen)
         pygame.display.flip()
