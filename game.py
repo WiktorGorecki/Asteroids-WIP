@@ -82,7 +82,7 @@ class Game:
             pygame.draw.rect(self.screen, "blue", pygame.Rect(bulletPosition, (5, 5)))
             # print(self.spaceship.angle)
             # self.bullets.append(Bullet(bulletPosition, (self.spaceship.velocity).rotate(self.spaceship.angle), self.spaceship.angle))
-            self.bullets.append(Bullet(bulletPosition, (self.spaceship.velocity), self.spaceship.angle))
+            self.bullets.append(Bullet(bulletPosition, (self.spaceship.velocity).rotate(self.spaceship.angle), self.spaceship.angle))
 
     def _process_game_logic(self):
         self.spaceship.move(self.keyPressed)
