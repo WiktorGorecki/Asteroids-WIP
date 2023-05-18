@@ -41,6 +41,10 @@ def rankingAddSingle(SCREEN, score):
         for i in range(0,3,1):
             initials+=lastKeys[i]
 
+        NAME_TEXT = get_font(45).render(initials, True, "White")
+        NAME_RECT = NAME_TEXT.get_rect(center=(960, 400))
+        SCREEN.blit(NAME_TEXT, NAME_RECT)
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -49,10 +53,11 @@ def rankingAddSingle(SCREEN, score):
                 if NEXT_BUTTON.checkForInput(PLAY_MOUSE_POS):
                     from screens.rankingScreenSingle import rankingScreenSingle
                     from utils.ranking import addHighScoreSingle
+                    if len(initials) ==
                     addHighScoreSingle(initials, score)
                     rankingScreenSingle(SCREEN)
             if event.type == pygame.KEYDOWN:
-                if pygame.key.name(event.key) == "Backspace":
+                if pygame.key.name(event.key) == "backspace":
                     lastKeys[0] = ""
                     lastKeys[1] = ""
                     lastKeys[2] = ""
