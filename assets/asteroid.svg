@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="148.3868mm"
+   height="137.82208mm"
+   viewBox="0 0 148.3868 137.82208"
+   version="1.1"
+   id="svg1553"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1550" />
+  <g
+     id="layer1"
+     transform="translate(-33.403645,-75.037283)">
+    <path
+       id="path1561"
+       style="fill:#008000;stroke-width:0.264583"
+       d="M 42.042066,18.212651 2.531299,45.093181 7.3454755,58.017457 -17.338289,129.67251 16.280847,156.03473 82.925358,141.05218 99.163127,124.81441 131.04852,93.331064 124.96,50.690772 77.913261,27.969678 Z m 0.520898,4.158403 33.63929,9.149829 44.118756,21.307226 5.70973,39.98619 L 96.129204,122.3386 80.902226,137.56557 18.405266,151.61536 -13.121492,126.89439 10.025932,59.698491 5.5114789,47.578817 Z"
+       transform="translate(50.741935,56.824629)" />
+    
+   width="187.9565mm"
+   height="197.23396mm"
+   viewBox="0 0 187.9565 197.23396"
+   version="1.1"
+   id="svg998"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="roid.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1000"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.74564394"
+     inkscape:cx="468.05182"
+     inkscape:cy="563.94209"
+     inkscape:window-width="1918"
+     inkscape:window-height="1008"
+     inkscape:window-x="1038"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs995" />
+  <g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-9.4633896,-50.139411)">
+    <path
+       id="path1392"
+       style="fill:#008000;stroke-width:0.264583"
+       inkscape:transform-center-x="-3.0710411"
+       inkscape:transform-center-y="3.7535574"
+       d="m 154.21735,50.139411 -42.61601,1.957504 -30.461706,14.941723 -39.735559,40.216672 -31.9406855,23.96804 27.1569985,82.42443 46.984729,8.10855 62.534683,25.61704 23.2606,-28.92588 18.0113,-60.93375 10.00818,-6.19704 -22.749,-61.664455 z m -1.81281,3.193604 19.76468,38.182165 21.98367,59.58913 -9.67124,5.98827 -17.40514,58.88271 -22.47718,27.9523 L 84.169423,219.17251 38.76651,211.33733 12.523668,131.68741 43.388967,108.52603 81.78714,69.663284 111.22359,55.224889 Z" />
+    
+  </g>
+</svg>

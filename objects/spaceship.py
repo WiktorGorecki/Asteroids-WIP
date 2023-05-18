@@ -6,21 +6,22 @@ from objects.object import GameObject
 
 
 class Spaceship(GameObject):
-    def __init__(self, position, velocity):
+    def __init__(self, position, velocity, img):
         print("Debug: Creating new Spaceship object")
-        GameObject.__init__(self, position, velocity)
+        GameObject.__init__(self, position, velocity, pygame.transform.scale_by(img, 0.2))
         self.keyUp = pygame.K_UP
         self.keyDown = pygame.K_DOWN
         self.keyLeft = pygame.K_LEFT
         self.keyRight = pygame.K_RIGHT
 
-    def draw(self, surface):
-        pygame.draw.rect(surface, "white", self.rectangle, width=5)
-        surface.blit(self.surface, self.rectangle)
+    def draw(self, screen):
+        pygame.draw.rect(screen, "white", self.rectangle, width=5)
+        screen.blit(self.surface, self.rectangle)
 
     def turn(self, angle):
         self.angle += angle
         self.surface = pygame.transform.rotate(self.img, self.angle)
+        self.rectangle = self.surface.get_rect(center=self.position)
 
     def move(self, keys):
         self.handleTeleportation()

@@ -7,13 +7,13 @@ from utils.settings import readSettings
 
 
 class GameObject:
-    def __init__(self, position, velocity):
+    def __init__(self, position, velocity, img):
         self.angle = 0
         self.position = Vector2(position)
         self.velocity = Vector2(velocity)
         self.settings = readSettings()
-        img = pygame.image.load("assets/ship.svg")
-        self.img = pygame.transform.scale_by(img, 0.4)
+        # self.img = pygame.transform.scale_by(img, 0.4)
+        self.img = img
         self.width = self.img.get_width()
         self.height = self.img.get_height()
         self.surface = pygame.transform.rotate(self.img, self.angle)

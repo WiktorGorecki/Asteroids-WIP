@@ -3,6 +3,7 @@ import pygame
 from pygame import QUIT, KEYDOWN, MOUSEBUTTONDOWN, FULLSCREEN, DOUBLEBUF, SCALED
 
 from game import Game
+from screens.rankingAddSingle import rankingAddSingle
 from utils.settings import readSettings
 from screens.main_menu import main_menu
 
@@ -28,9 +29,4 @@ SCREEN = pygame.display.set_mode((settings["width"], settings["height"]), flags,
 SCREEN.set_alpha(None)  # No alpha channel
 pygame.display.set_caption("Asteroids")
 
-# rankingScreenDouble(SCREEN)
 main_menu(SCREEN)
-
-# You can use following two lines for testing:
-# game = Game()
-# game.main_loop()
