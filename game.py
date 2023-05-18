@@ -53,11 +53,22 @@ class Game:
 
         self.keyPressed = keys
         if (keys[pygame.K_SPACE]):
+            ox, oy = self.spaceship.position[0]+self.spaceship.width//2, self.spaceship.position[1]
+            # px, py = self.spaceship.position[0] + self.spaceship.width//2, self.spaceship.position[1] + self.spaceship.height//2
+            px, py = self.spaceship.rectangle.center
+
+            qx = ox + math.cos(self.spaceship.angle) * (px - ox) - math.sin(self.spaceship.angle) * (py - oy)
+            qy = oy + math.sin(self.spaceship.angle) * (px - ox) + math.cos(self.spaceship.angle) * (py - oy)
+
             # cosine = math.cos(math.radians(self.spaceship.angle + 90))
             # sine = math.sin(math.radians(self.spaceship.angle + 90))
             # head = (self.spaceship.position[0] + sine * self.spaceship.width // 2, self.spaceship.position[1] - cosine * self.spaceship.height // 2)
-            bulletPosition = Vector2((self.spaceship.position[0] + self.spaceship.width /2), self.spaceship.position[1]).rotate(self.spaceship.angle)
-            self.bullets.append(Bullet(bulletPosition, (0.2, 0.2), self.spaceship.angle))
+            #bulletPosition = Vector2((self.spaceship.position[0] + self.spaceship.width /2), self.spaceship.position[1]).rotate(self.spaceship.angle)
+            bulletPosition2 = (qx, qy)
+            bulletPosition = (px, py)
+            pygame.draw.rect(self.screen, "blue", pygame.Rect(bulletPosition, (5, 5)))
+            print(self.spaceship.angle)
+            self.bullets.append(Bullet(bulletPosition, (self.spaceship.velocity).rotate(self.spaceship.angle), self.spaceship.angle))
 
     def _process_game_logic(self):
         self.spaceship.move(self.keyPressed)
