@@ -84,12 +84,12 @@ class Spaceship(GameObject):
             self.position += self.velocity
             self.rectangle = self.surface.get_rect(topleft=self.position)
 
-        if keys[self.keyDown]:
-            if (self.velocity[0]-0.1>0):
-                self.velocity-=(0.1,0.1)
-
-        if keys[self.keyUp]:
-            self.velocity += (0.1, 0.1)
+        # if keys[self.keyDown]:
+        #     if (self.velocity[0]-0.1>0):
+        #         self.velocity-=(0.1,0.1)
+        #
+        # if keys[self.keyUp]:
+        #     self.velocity += (0.1, 0.1)
 
 class Bullet:
     def __init__(self, position, velocity, angle=0):
