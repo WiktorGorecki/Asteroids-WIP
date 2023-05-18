@@ -1,4 +1,4 @@
 stats = {
     'score': 0,
-    'healthPoints': 1
+    'healthPoints': 1,
 }
