@@ -2,6 +2,7 @@ import sys
 
 import pygame
 
+import constants
 from button import Button
 from utils.get_font import get_font
 from utils.settings import readSettings, writeSettings
@@ -15,26 +16,28 @@ def options(SCREEN):
         SCREEN.fill("black")
 
         OPTIONS_BACK = Button(
-            pos=(640, 460),
+            pos=(1100, 650), # Used to be 640, 460
             text_input="BACK",
             font=get_font(75)
         )
-
+        font = get_font(40)
+        displayModeText = font.render("Display Mode: ", True, constants.TEXT_COLOR)
+        SCREEN.blit(displayModeText, (10,10))
         if settings["fullscreen"]:
-            toggletext ="WINDOWED"
+            toggletext ="FULLSCREEN"
         else:
-            toggletext = "FULLSCREEN"
+            toggletext = "WINDOWED"
 
         OPTIONS_TOGGLE_FULLSCREEN = Button(
-            pos=(640, 200),
+            pos=(730, 30), # Used to be 640, 200 TODO: Center this button and the text behind it
             text_input=toggletext,
-            font=get_font(30)
+            font=get_font(40)
         )
 
         OPTIONS_SAVE_BUTTON = Button(
             pos=(640, 600),
             text_input="SAVE SETTINGS",
-            font=get_font(30)
+            font=get_font(40)
         )
 
         OPTIONS_BACK.changeColor(OPTIONS_MOUSE_POS)

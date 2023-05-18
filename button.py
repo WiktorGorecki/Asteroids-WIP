@@ -2,8 +2,8 @@ import constants
 
 
 class Button:
-    def __init__(self, pos, text_input, font, base_color=constants.textColor,
-                 hovering_color=constants.textColorHover):
+    def __init__(self, pos, text_input, font, base_color=constants.TEXT_COLOR,
+                 hovering_color=constants.TEXT_COLOR_HOVER):
         self.x_pos = pos[0]
         self.y_pos = pos[1]
         self.font = font
