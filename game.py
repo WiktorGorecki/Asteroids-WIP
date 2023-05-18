@@ -10,6 +10,7 @@ from objects.asteroid import Asteroid
 from utils.settings import readSettings
 from objects.spaceship import Bullet
 from pygame.math import Vector2
+from utils.scoreHandler import scoreHandler
 
 
 class Game:
@@ -37,6 +38,7 @@ class Game:
             self._handle_input(keys)
             self._process_game_logic()
             self._draw()
+
 
 
 
@@ -78,6 +80,8 @@ class Game:
                 pygame.mixer.music.stop()
 
                 self.spaceship.color = "red"
+                self.asteroids.remove(asteroid)
+                scoreHandler("onShipHit")
             else:
                 self.spaceship.color = "white"
 
@@ -86,6 +90,7 @@ class Game:
                 if bullet.collision(asteroid):
                 # print("collision")
                     bullet.color = "red"
+                    scoreHandler("onAsteroidHit")
                 else:
                     bullet.color = "green"
 
