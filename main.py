@@ -29,8 +29,9 @@ SCREEN.set_alpha(None)  # No alpha channel
 pygame.display.set_caption("Asteroids")
 
 # rankingScreenDouble(SCREEN)
-main_menu(SCREEN)
+# main_menu(SCREEN)
 
 # You can use following two lines for testing:
-# game = Game()
-# game.main_loop()
+game = Game()
+game.main_loop()
+#
