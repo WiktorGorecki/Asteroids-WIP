@@ -30,6 +30,5 @@ else:
 SCREEN = pygame.display.set_mode((settings["width"], settings["height"]), flags, 1)
 SCREEN.set_alpha(None)  # No alpha channel
 pygame.display.set_caption("Asteroids")
-#main_menu(SCREEN)
-tmpScreen(SCREEN)
-# rankingAddDouble(SCREEN, 999)
+
+main_menu(SCREEN)
