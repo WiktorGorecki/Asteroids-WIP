@@ -49,6 +49,4 @@ class AsteroidSmall(Asteroid):
     def draw(self, surface):
         pygame.draw.rect(surface, "green", pygame.Rect(self.position[0], self.position[1], self.height, self.width))
 
-    # def move(self):
-        # 
 

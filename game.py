@@ -7,6 +7,9 @@ import pygame
 from objects.object import GameObject
 from objects.spaceship import Spaceship
 from objects.asteroid import Asteroid
+from screens.main_menu import main_menu
+from screens.rankingAddSingle import rankingAddSingle
+from utils import settings
 from utils.settings import readSettings
 from objects.spaceship import Bullet
 from pygame.math import Vector2

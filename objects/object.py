@@ -48,7 +48,6 @@ class GameObject:
             self.position[1] %= height
 
     def collision(self, other):
-        # pygame.mixer.Sound.play(self.collision_sound)
         return self.rectangle.colliderect(other.rectangle)
         # return pygame.Rect(self.rectangle.topleft, (self.width, self.height)).colliderect(pygame.Rect(other.rectangle.topleft, (other.width, other.height)))
         # return self.position[0] < other.position[0] + other.width and self.position[0] + self.rectangle.w > other.position[0] and self.position[1] < other.position[1] + other.height and self.height + self.position[1] > other.position[1]
