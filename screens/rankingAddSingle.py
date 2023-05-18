@@ -53,7 +53,8 @@ def rankingAddSingle(SCREEN, score):
                 if NEXT_BUTTON.checkForInput(PLAY_MOUSE_POS):
                     from screens.rankingScreenSingle import rankingScreenSingle
                     from utils.ranking import addHighScoreSingle
-                    if len(initials) ==
+                    if len(initials) == 0:
+                        initials = "NUL"
                     addHighScoreSingle(initials, score)
                     rankingScreenSingle(SCREEN)
             if event.type == pygame.KEYDOWN:
@@ -61,8 +62,14 @@ def rankingAddSingle(SCREEN, score):
                     lastKeys[0] = ""
                     lastKeys[1] = ""
                     lastKeys[2] = ""
-                lastKeys[0] = lastKeys[1]
-                lastKeys[1] = lastKeys[2]
-                lastKeys[2] = pygame.key.name(event.key)
+                else:
+                    lastKeys[0] = lastKeys[1]
+                    lastKeys[1] = lastKeys[2]
+                    keyName = pygame.key.name(event.key)
+                    if keyName == "space":
+                        keyName = " "
+                    if keyName != "left ctrl" and keyName != "left alt" and keyName != "right ctrl" and keyName != "right alt" and keyName != "left meta" and keyName != "tab" and keyName != "left shift" and keyName != "right shift":
+                        lastKeys[2] = keyName
+
 
         pygame.display.update()
