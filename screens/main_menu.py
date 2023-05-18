@@ -12,9 +12,6 @@ from utils.get_font import get_font
 def multiplayer(SCREEN):
     pass
 
-def singleplayer(SCREEN):
-    pass
-
 
 
 def main_menu(SCREEN):
@@ -45,11 +42,13 @@ def main_menu(SCREEN):
                 sys.exit()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if SINGLEPLAYER_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    singleplayer(SCREEN)
+                    from game import Game
+                    game = Game()
+                    game.main_loop()
                 if MULTIPLAYER_BUTTON.checkForInput(MENU_MOUSE_POS):
                     multiplayer(SCREEN)
                 if RANKING_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    from rankingScreenMain import rankingScreenMain
+                    from screens.rankingScreenMain import rankingScreenMain
                     rankingScreenMain(SCREEN)
                 if SETTINGS_BUTTON.checkForInput(MENU_MOUSE_POS):
                     options(SCREEN)
