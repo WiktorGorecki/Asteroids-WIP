@@ -1,6 +1,6 @@
 import pygame
 
-from stats import stats
+from utils.stats import stats
 
 def scoreHandler(input):
     if input=='onAsteroidHit':
