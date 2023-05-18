@@ -37,7 +37,7 @@ class Game:
     # def _get_game_objects(self):
     #     return [*self.asteroids, self.spaceship]
 
-    def main_loop(self):
+    def main_loop(self, SCREEN):
         while True:
             keys = pygame.key.get_pressed()
             self._handle_input(keys)
