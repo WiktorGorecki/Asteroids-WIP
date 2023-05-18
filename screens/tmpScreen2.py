@@ -31,7 +31,7 @@ def tmpScreen(SCREEN):
             SCREEN.blit(HEART_ICON, HEART_RECT)
 
         if stats['healthpoints'] <= 0:
-            from rankingAddDouble import rankingAddDouble
+            from screens.rankingAddDouble import rankingAddDouble
             rankingAddDouble(SCREEN, stats['score'])
 
         pygame.display.update()

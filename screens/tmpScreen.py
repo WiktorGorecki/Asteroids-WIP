@@ -24,7 +24,7 @@ def tmpScreen(SCREEN):
         SCREEN.blit(NUMBER_TEXT, NUMBER_RECT)
 
         heart = pygame.image.load('assets/heart.svg')
-        for i in range(0, stats['healthpoints1']):
+        for i in range(0, stats['healthpoints']):
             HEART_ICON = pygame.transform.scale(heart, (25, 25))
             HEART_RECT = HEART_ICON.get_rect(center=(50+i*25, 100))
             SCREEN.blit(HEART_ICON, HEART_RECT)
