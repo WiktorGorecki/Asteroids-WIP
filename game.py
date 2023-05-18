@@ -8,9 +8,13 @@ import pygame
 from objects.object import GameObject
 from objects.spaceship import Spaceship
 from objects.asteroid import Asteroid
+
+from utils.get_font import get_font
+
 from screens.main_menu import main_menu
 from screens.rankingAddSingle import rankingAddSingle
 from utils import settings
+
 from utils.settings import readSettings
 from objects.spaceship import Bullet
 from pygame.math import Vector2
@@ -30,6 +34,7 @@ class Game:
         self.keyPressed = []
         self.asteroids = [Asteroid((randint(0, self.settings['width']), randint(0, self.settings['height'])), (0.1, 0.1), asteroidImg) for i in range(3)]
         self.bullets = []
+
         #self.asteroids = [Asteroid((400, 300), (0.3,0.3), asteroidImg)]
         # self.asteroids = [Asteroid((0, 0)) for _ in range(6)]
 
@@ -75,7 +80,7 @@ class Game:
             bulletPosition2 = (qx, qy)
             bulletPosition = (px, py)
             pygame.draw.rect(self.screen, "blue", pygame.Rect(bulletPosition, (5, 5)))
-            print(self.spaceship.angle)
+            # print(self.spaceship.angle)
             self.bullets.append(Bullet(bulletPosition, (self.spaceship.velocity).rotate(self.spaceship.angle), self.spaceship.angle))
 
     def _process_game_logic(self):
