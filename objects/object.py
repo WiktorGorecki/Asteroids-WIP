@@ -1,8 +1,10 @@
 import math
 
 import pygame.draw
+
 from pygame.math import Vector2
 from utils.settings import readSettings
+
 
 class GameObject:
     def __init__(self, position, velocity):
@@ -22,6 +24,7 @@ class GameObject:
 
     def move(self):
         pass
+
 
     def handleCollisionLeft(self):
         return self.position[0] <= 0
@@ -47,3 +50,7 @@ class GameObject:
         if self.handleCollisionDown():
             self.rectangle.move_ip(0, -self.settings['height'])
 
+
+    # def collides_with(self, other_obj):
+    #     distance = self.position.distance_to(other_obj.position)
+    #     return distance < self.radius + other_obj.radius
