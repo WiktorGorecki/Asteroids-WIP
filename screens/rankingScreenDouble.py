@@ -4,7 +4,7 @@ import pygame
 
 from button import Button
 from utils.get_font import get_font
-from utils.ranking import readRankingDouble, writeRankingDouble, rankingDoubleLenghtCheck, resetRankingDouble
+from utils.ranking import readRankingDouble, rankingDoubleLenghtCheck, resetRankingDouble
 
 
 def rankingScreenDouble(SCREEN):
@@ -13,7 +13,7 @@ def rankingScreenDouble(SCREEN):
 
         SCREEN.fill("black")
 
-        PLAY_TEXT = get_font(45).render("HIGHSCORE TABLE", True, "White")
+        PLAY_TEXT = get_font(45).render("DOUBLE HIGHSCORE TABLE", True, "White")
         PLAY_RECT = PLAY_TEXT.get_rect(center=(640, 100))
         SCREEN.blit(PLAY_TEXT, PLAY_RECT)
 
@@ -37,15 +37,23 @@ def rankingScreenDouble(SCREEN):
             SCREEN.blit(SCORE_TEXT, SCORE_RECT)
 
         MENU_BUTTON = Button(
-            pos=(640, 500),
+            pos=(300, 500),
             text_input="MAIN MENU",
-            font=get_font(75)
+            font=get_font(25)
+        )
+
+        RESET_BUTTON = Button(
+            pos=(900, 500),
+            text_input="RESET SCOREBOARD",
+            font=get_font(25)
         )
 
 
         MENU_BUTTON.changeColor(PLAY_MOUSE_POS)
         MENU_BUTTON.update(SCREEN)
 
+        RESET_BUTTON.changeColor(PLAY_MOUSE_POS)
+        RESET_BUTTON.update(SCREEN)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -54,6 +62,10 @@ def rankingScreenDouble(SCREEN):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if MENU_BUTTON.checkForInput(PLAY_MOUSE_POS):
                     from screens.main_menu import main_menu
+                    main_menu(SCREEN)
+                if RESET_BUTTON.checkForInput(PLAY_MOUSE_POS):
+                    from screens.main_menu import main_menu
+                    resetRankingDouble()
                     main_menu(SCREEN)
 
         pygame.display.update()

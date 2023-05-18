@@ -42,9 +42,6 @@ class Spaceship(GameObject):
             # self.rectangle.move_ip(dx, dy)
             # self.position = self.rectangle.center
             # print(self.rectangle.center)
-        
-        # if keys[self.keyUp]:
-        #     self.velocity+=(0.1,0.1)
 
         if keys[self.keyDown]:
             if (self.velocity[0]-0.1>0):
