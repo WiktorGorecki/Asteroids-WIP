@@ -107,6 +107,21 @@ class Bullet:
     def collision(self, other):
         return self.rectangle.colliderect(other.rectangle)
 
+    def handleCollisionLeft(self):
+        return self.position[0] <= 0
+
+    def handleCollisionRight(self):
+        width = self.settings['width']
+        return self.position[0]+self.width >= width
+
+    def handleCollisionDown(self):
+        height = self.settings['height']
+        return self.position[1] + self.width >= height
+
+    def handleCollisionTop(self):
+        return self.position[1] <= 0
+
+
 # class Bullet(GameObject):
 #
 #     def __init__(self, position, velocity):

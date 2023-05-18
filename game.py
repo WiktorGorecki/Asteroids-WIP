@@ -66,11 +66,17 @@ class Game:
 
         for bullet in self.bullets:
             bullet.move()
+            if bullet.handleCollisionDown() or bullet.handleCollisionTop() or bullet.handleCollisionLeft() or bullet.handleCollisionRight():
+                self.bullets.remove(bullet)
 
 
         for asteroid in self.asteroids:
             if self.spaceship.collision(asteroid):
                 # print("collision")
+                collisionSound = pygame.mixer.Sound('./assets/meteorecrush.wav')
+                pygame.mixer.Sound.play(collisionSound)
+                pygame.mixer.music.stop()
+
                 self.spaceship.color = "red"
             else:
                 self.spaceship.color = "white"
