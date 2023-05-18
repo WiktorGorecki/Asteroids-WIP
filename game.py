@@ -1,16 +1,19 @@
 import pygame
 from objects.object import GameObject
 from objects.spaceship import Spaceship
-# from objects.asteroid import Asteroid
+from objects.asteroid import Asteroid
 
 class Game:
     def __init__(self):
+        print("dupa")
         self._init_pygame()
         self.screen = pygame.display.set_mode((800, 600))
         self.spaceship = Spaceship((400, 300), (2,2))
         self.spaceship2 = Spaceship((600, 300), (3,3))
         self.keyPressed = []
         self.asteroids = []
+        asteroid = Asteroid((300, 300), (0, 0))
+        self.asteroids.append(asteroid)
 
     def main_loop(self):
         while True:
@@ -39,4 +42,8 @@ class Game:
     def _draw(self):
         self.screen.fill("black")
         self.spaceship.draw(self.screen)
+
+        for asteroid in self.asteroids:
+            asteroid.draw(self.screen)
+
         pygame.display.flip()
