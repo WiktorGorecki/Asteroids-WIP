@@ -1,6 +1,9 @@
+import math
+
 import pygame
 
 from objects.object import GameObject
+
 
 class Spaceship(GameObject):
     def __init__(self, position, velocity):
@@ -11,18 +14,24 @@ class Spaceship(GameObject):
         self.keyRight = pygame.K_RIGHT
 
     def draw(self, surface):
-        # blit_position = self.position - Vector2(self.radius)
-        # surface.blit(self.sprite, blit_position)
-        pygame.draw.rect(surface, "green", pygame.Rect(self.position[0], self.position[1], self.height, self.width))
-        #pygame.draw.rect(surface, "green", self.position)
+        pygame.draw.rect(surface, "white", self.rectangle, width=5)
+        surface.blit(self.surface, self.rectangle)
 
+    def turn(self, angle):
+        self.angle += angle
+        self.surface = pygame.transform.rotate(self.img, self.angle)
 
     def move(self, keys):
+        self.handleTeleportation()
+
+        if keys[self.keyLeft]:
+            self.turn(0.5)
+        if keys[self.keyRight]:
+            self.turn(-0.5)
+
         if keys[self.keyUp]:
-            self.position[1] -= self.velocity[1]
-        elif keys[self.keyDown]:
-            self.position[1] += self.velocity[1]
-        elif keys[self.keyLeft]:
-            self.position[0] -= self.velocity[0]
-        elif keys[self.keyRight]:
-            self.position[0] += self.velocity[0]
+            dx = self.velocity[0] * math.cos(math.radians(self.angle + 90))
+            dy = -self.velocity[1] * math.sin(math.radians(self.angle + 90))
+            self.rectangle.move_ip(dx, dy)
+            self.position = self.rectangle.center
+            # print(self.rectangle.center)
