@@ -55,7 +55,10 @@ def rankingScreenMain(SCREEN):
                     from screens.main_menu import main_menu
                     main_menu(SCREEN)
                 if RANKING_SINGLE_BUTTON.checkForInput(PLAY_MOUSE_POS):
-                    from screens.rankingShow import rankingSHOW
-                    rankingSHOW(SCREEN, gamemode)
+                    from screens.rankingScreenSingle import rankingScreenSingle
+                    rankingScreenSingle(SCREEN)
+                if RANKING_DOUBLE_BUTTON.checkForInput(PLAY_MOUSE_POS):
+                    from screens.rankingScreenDouble import rankingScreenDouble
+                    rankingScreenDouble(SCREEN)
 
         pygame.display.update()
