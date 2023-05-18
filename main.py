@@ -6,6 +6,7 @@ from game import Game
 from screens.rankingAddDouble import rankingAddDouble
 from screens.rankingAddSingle import rankingAddSingle
 from utils.settings import readSettings
+from screens.tmpScreen import tmpScreen
 from screens.main_menu import main_menu
 
 pygame.init()
@@ -29,7 +30,5 @@ else:
 SCREEN = pygame.display.set_mode((settings["width"], settings["height"]), flags, 1)
 SCREEN.set_alpha(None)  # No alpha channel
 pygame.display.set_caption("Asteroids")
-# main_menu(SCREEN)
-game =Game()
-game.main_loop()
-# rankingAddDouble(SCREEN, 999)
+
+main_menu(SCREEN)

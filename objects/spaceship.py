@@ -32,6 +32,11 @@ class Spaceship(GameObject):
 
     def move(self, keys):
         self.handleTeleportation()
+        pygame.mixer.init()
+
+        #  sound = pygame.mixer.music.load('assets/rocketengine.wav')
+        #  pygame.mixer.music.play()
+        #  pygame.mixer.music.stop()
 
         if keys[self.keyLeft]:
             self.turn(0.5)
