@@ -44,7 +44,7 @@ def main_menu(SCREEN):
                 if SINGLEPLAYER_BUTTON.checkForInput(MENU_MOUSE_POS):
                     from game import Game
                     game = Game()
-                    game.main_loop()
+                    game.main_loop(SCREEN)
                 if MULTIPLAYER_BUTTON.checkForInput(MENU_MOUSE_POS):
                     multiplayer(SCREEN)
                 if RANKING_BUTTON.checkForInput(MENU_MOUSE_POS):

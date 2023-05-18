@@ -11,6 +11,7 @@ class Asteroid(GameObject):
 
     def __init__(self, position, velocity, img):
         print("Debug: Creating new Spaceship object")
+        self.health = 3
         GameObject.__init__(self, position, Vector2(velocity).rotate(randint(0, 360)), pygame.transform.scale_by(img, 0.1), angle=randint(0, 360))
         # self.dir = randrange(0, 360) * math.pi / 180
 
@@ -32,6 +33,13 @@ class Asteroid(GameObject):
         self.position += self.velocity
         self.rectangle = self.surface.get_rect(topleft=self.position)
         # self.turn(0.1)
+
+    def checkDestroy(self):
+        if self.health == 0:
+            return True
+        else:
+            return False
+
 
 class AsteroidSmall(Asteroid):
     def __init__(self, position, velocity, img):

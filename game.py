@@ -4,6 +4,7 @@ from random import randrange
 
 
 import pygame
+
 from objects.object import GameObject
 from objects.spaceship import Spaceship
 from objects.asteroid import Asteroid
@@ -14,6 +15,7 @@ from utils.settings import readSettings
 from objects.spaceship import Bullet
 from pygame.math import Vector2
 from utils.scoreHandler import scoreHandler
+from utils.stats import stats
 
 
 class Game:
@@ -23,7 +25,7 @@ class Game:
         asteroidImg = pygame.image.load("assets/asteroid2.svg")
         self.settings = readSettings()
         self._init_pygame()
-        self.screen = pygame.display.set_mode((800, 600))
+        self.screen = pygame.display.set_mode((1280, 720))
         self.spaceship = Spaceship((400, 300), (0.2,0.2), shipImg)
         self.keyPressed = []
         self.asteroids = [Asteroid((randint(0, self.settings['width']), randint(0, self.settings['height'])), (0.1, 0.1), asteroidImg) for i in range(3)]
@@ -41,7 +43,8 @@ class Game:
             self._handle_input(keys)
             self._process_game_logic()
             self._draw()
-
+            if stats["healthPoints"] == 0:
+                rankingAddSingle(SCREEN, stats["score"])
 
 
 
@@ -93,7 +96,10 @@ class Game:
                 if bullet.collision(asteroid):
                 # print("collision")
                     bullet.color = "red"
+                    asteroid.health -= 1
                     scoreHandler("onAsteroidHit")
+                    if asteroid.checkDestroy():
+                        self.asteroids.remove(asteroid)
                 else:
                     bullet.color = "green"
 
