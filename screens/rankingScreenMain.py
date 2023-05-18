@@ -12,10 +12,6 @@ def rankingScreenMain(SCREEN):
 
         SCREEN.fill("black")
 
-        # PLAY_TEXT = get_font(45).render("This is the RANKING screen.", True, "White")
-        # PLAY_RECT = PLAY_TEXT.get_rect(center=(640, 260))
-        # SCREEN.blit(PLAY_TEXT, PLAY_RECT)
-
         BACK_BUTTON = Button(
             pos=(640, 400),
             text_input="BACK",

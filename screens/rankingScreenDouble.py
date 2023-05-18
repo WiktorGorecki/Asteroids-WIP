@@ -13,26 +13,26 @@ def rankingScreenDouble(SCREEN):
 
         SCREEN.fill("black")
 
-        PLAY_TEXT = get_font(45).render("DOUBLE HIGHSCORE TABLE", True, "White")
+        PLAY_TEXT = get_font(45).render("DOUBLE HIGHSCORE TABLE", True, "green")
         PLAY_RECT = PLAY_TEXT.get_rect(center=(640, 100))
         SCREEN.blit(PLAY_TEXT, PLAY_RECT)
 
         rankingDoubleLenghtCheck()
         table = readRankingDouble()
         for i in range(1,11,1):
-            RANK_TEXT = get_font(20).render(str(i), True, "White")
+            RANK_TEXT = get_font(20).render(str(i), True, "green")
             RANK_RECT = RANK_TEXT.get_rect(center=(150, 200+(i-1)*25))
             SCREEN.blit(RANK_TEXT, RANK_RECT)
 
-            INIT1_TEXT = get_font(20).render(table[str(i)]["initials1"], True, "White")
+            INIT1_TEXT = get_font(20).render(table[str(i)]["initials1"], True, "green")
             INIT1_RECT = INIT1_TEXT.get_rect(center=(450, 200 + (i - 1) * 25))
             SCREEN.blit(INIT1_TEXT, INIT1_RECT)
 
-            INIT2_TEXT = get_font(20).render(table[str(i)]["initials2"], True, "White")
+            INIT2_TEXT = get_font(20).render(table[str(i)]["initials2"], True, "green")
             INIT2_RECT = INIT2_TEXT.get_rect(center=(750, 200 + (i - 1) * 25))
             SCREEN.blit(INIT2_TEXT, INIT2_RECT)
 
-            SCORE_TEXT = get_font(20).render(str(table[str(i)]["score"]), True, "White")
+            SCORE_TEXT = get_font(20).render(str(table[str(i)]["score"]), True, "green")
             SCORE_RECT = SCORE_TEXT.get_rect(center=(1050, 200 + (i - 1) * 25))
             SCREEN.blit(SCORE_TEXT, SCORE_RECT)
 

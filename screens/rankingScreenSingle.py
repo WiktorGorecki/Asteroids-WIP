@@ -13,22 +13,22 @@ def rankingScreenSingle(SCREEN):
 
         SCREEN.fill("black")
 
-        PLAY_TEXT = get_font(45).render("SINGLE HIGHSCORE TABLE", True, "White")
+        PLAY_TEXT = get_font(45).render("SINGLE HIGHSCORE TABLE", True, "green")
         PLAY_RECT = PLAY_TEXT.get_rect(center=(640, 100))
         SCREEN.blit(PLAY_TEXT, PLAY_RECT)
 
         rankingSingleLenghtCheck()
         table = readRankingSingle()
         for i in range(1,11,1):
-            RANK_TEXT = get_font(20).render(str(i), True, "White")
+            RANK_TEXT = get_font(20).render(str(i), True, "green")
             RANK_RECT = RANK_TEXT.get_rect(center=(320, 200+(i-1)*25))
             SCREEN.blit(RANK_TEXT, RANK_RECT)
 
-            INIT_TEXT = get_font(20).render(table[str(i)]["initials"], True, "White")
+            INIT_TEXT = get_font(20).render(table[str(i)]["initials"], True, "green")
             INIT_RECT = INIT_TEXT.get_rect(center=(640, 200 + (i - 1) * 25))
             SCREEN.blit(INIT_TEXT, INIT_RECT)
 
-            SCORE_TEXT = get_font(20).render(str(table[str(i)]["score"]), True, "White")
+            SCORE_TEXT = get_font(20).render(str(table[str(i)]["score"]), True, "green")
             SCORE_RECT = SCORE_TEXT.get_rect(center=(960, 200 + (i - 1) * 25))
             SCREEN.blit(SCORE_TEXT, SCORE_RECT)
 
