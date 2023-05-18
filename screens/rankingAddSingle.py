@@ -38,7 +38,7 @@ def rankingAddSingle(SCREEN, score):
         NEXT_BUTTON.update(SCREEN)
 
         initials = ""
-        for i in lastKeys:
+        for i in range(0,3,1):
             initials+=lastKeys[i]
 
         for event in pygame.event.get():
@@ -52,12 +52,12 @@ def rankingAddSingle(SCREEN, score):
                     addHighScoreSingle(initials, score)
                     rankingScreenSingle(SCREEN)
             if event.type == pygame.KEYDOWN:
-                if event.key == "Backspace":
+                if pygame.key.name(event.key) == "Backspace":
                     lastKeys[0] = ""
                     lastKeys[1] = ""
                     lastKeys[2] = ""
                 lastKeys[0] = lastKeys[1]
                 lastKeys[1] = lastKeys[2]
-                lastKeys[2] = event.key.key_code
+                lastKeys[2] = pygame.key.name(event.key)
 
         pygame.display.update()
