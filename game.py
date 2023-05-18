@@ -9,7 +9,7 @@ class Game:
         self._init_pygame()
         self.screen = pygame.display.set_mode((800, 600))
         self.spaceship = Spaceship((400, 300), (2,2))
-        self.spaceship2 = Spaceship((600, 300), (3,3))
+        # self.spaceship2 = Spaceship((600, 300), (3,3))
         self.keyPressed = []
         self.asteroids = []
         asteroid = Asteroid((300, 300), (0, 0))
