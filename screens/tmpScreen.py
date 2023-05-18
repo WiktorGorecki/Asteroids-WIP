@@ -6,7 +6,6 @@ from button import Button
 from utils.get_font import get_font
 from utils.stats import stats
 
-
 def tmpScreen(SCREEN):
     stats['score'] = 0
     stats['healthpoints'] = 3
@@ -30,7 +29,7 @@ def tmpScreen(SCREEN):
             SCREEN.blit(HEART_ICON, HEART_RECT)
 
         if stats['healthpoints'] <= 0:
-            from rankingAddSingle import rankingAddSingle
+            from screens.rankingAddSingle import rankingAddSingle
             rankingAddSingle(SCREEN, stats['score'])
 
         pygame.display.update()
