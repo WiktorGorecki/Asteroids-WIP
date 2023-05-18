@@ -7,8 +7,8 @@ from utils.settings import readSettings
 
 
 class GameObject:
-    def __init__(self, position, velocity, img):
-        self.angle = 0
+    def __init__(self, position, velocity, img, angle=0):
+        self.angle = angle
         self.position = Vector2(position)
         self.velocity = Vector2(velocity)
         self.settings = readSettings()
@@ -17,7 +17,7 @@ class GameObject:
         self.width = self.img.get_width()
         self.height = self.img.get_height()
         self.surface = pygame.transform.rotate(self.img, self.angle)
-        self.rectangle = self.surface.get_rect(center=(self.position[0], self.position[1]))
+        self.rectangle = self.surface.get_rect(topleft=(self.position[0], self.position[1]))
 
     def draw(self, surface):
         pass
@@ -47,6 +47,14 @@ class GameObject:
             self.position[0] %= width
             self.position[1] %= height
 
+    def collision(self, other):
+        # pygame.mixer.Sound.play(self.collision_sound)
+        return self.rectangle.colliderect(other.rectangle)
+        # return pygame.Rect(self.rectangle.topleft, (self.width, self.height)).colliderect(pygame.Rect(other.rectangle.topleft, (other.width, other.height)))
+        # return self.position[0] < other.position[0] + other.width and self.position[0] + self.rectangle.w > other.position[0] and self.position[1] < other.position[1] + other.height and self.height + self.position[1] > other.position[1]
+
+
+        # return self.rectangle.colliderect(other.rectangle)
         # if self.handleCollisionLeft():
         #     self.position[0] = self.settings['width']
         # if self.handleCollisionRight():
