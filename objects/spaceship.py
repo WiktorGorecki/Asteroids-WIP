@@ -37,3 +37,5 @@ class Spaceship(GameObject):
             self.rectangle.move_ip(dx, dy)
             self.position = self.rectangle.center
             # print(self.rectangle.center)
+
+    # def attack(self):

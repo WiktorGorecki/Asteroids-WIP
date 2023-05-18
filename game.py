@@ -50,15 +50,11 @@ class Game:
 
     def _draw(self):
         self.screen.fill("black")
-        # for game_object in self._get_game_objects():
-        #     game_object.draw(self.screen)
-        # wiadomosc gdy przegrana
-        # if self.message:
-        #     print_text(self.screen, self.message, self.font)
+        self.spaceship.draw(self.screen)
 
-        # self.spaceship.draw(self.screen)
         for asteroid in self.asteroids:
             asteroid.draw(self.screen)
+
         pygame.display.flip()
 
 
