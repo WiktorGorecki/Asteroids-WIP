@@ -30,7 +30,7 @@ def main_menu(SCREEN):
         SETTINGS_BUTTON = Button(pos=(320, 660), base_color="green", hovering_color="dark green", text_input="SETTINGS", font=get_font(75))
         QUIT_BUTTON = Button(pos=(960, 660), base_color="green", hovering_color="dark green", text_input="QUIT", font=get_font(75))
 
-        # SCREEN.blit(MENU_LOGO, MENU_RECT)
+        SCREEN.blit(MENU_LOGO, MENU_RECT)
 
         for button in [SINGLEPLAYER_BUTTON, MULTIPLAYER_BUTTON, RANKING_BUTTON, SETTINGS_BUTTON, QUIT_BUTTON]:
             button.changeColor(MENU_MOUSE_POS)
