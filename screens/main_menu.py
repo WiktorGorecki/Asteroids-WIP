@@ -20,17 +20,17 @@ def main_menu(SCREEN):
 
         MENU_MOUSE_POS = pygame.mouse.get_pos()
 
-        # logo = pygame.image.load('assets/pongologo.png')
-        # MENU_LOGO = pygame.transform.scale(logo, (580, 580))
-        # MENU_RECT = MENU_LOGO.get_rect(center=(640, 210))
+        logo = pygame.image.load('assets/logoroid.svg')
+        MENU_LOGO = pygame.transform.scale(logo, (580, 580))
+        MENU_RECT = MENU_LOGO.get_rect(center=(850, 350))
 
-        SINGLEPLAYER_BUTTON = Button(pos=(640, 300), base_color="green", hovering_color="dark green", text_input="SINGLEPLAYER", font=get_font(75))
-        MULTIPLAYER_BUTTON = Button(pos=(640, 420), base_color="green", hovering_color="dark green", text_input="MULTIPLAYER", font=get_font(75))
-        RANKING_BUTTON = Button(pos=(640, 540), base_color="green", hovering_color="dark green", text_input="RANKING", font=get_font(75))
-        SETTINGS_BUTTON = Button(pos=(320, 660), base_color="green", hovering_color="dark green", text_input="SETTINGS", font=get_font(75))
-        QUIT_BUTTON = Button(pos=(960, 660), base_color="green", hovering_color="dark green", text_input="QUIT", font=get_font(75))
+        SINGLEPLAYER_BUTTON = Button(pos=(640, 300), text_input="SINGLEPLAYER", font=get_font(75))
+        MULTIPLAYER_BUTTON = Button(pos=(640, 420), text_input="MULTIPLAYER", font=get_font(75))
+        RANKING_BUTTON = Button(pos=(640, 540), text_input="RANKING", font=get_font(75))
+        SETTINGS_BUTTON = Button(pos=(320, 660), text_input="SETTINGS", font=get_font(75))
+        QUIT_BUTTON = Button(pos=(960, 660), text_input="QUIT", font=get_font(75))
 
-        # SCREEN.blit(MENU_LOGO, MENU_RECT)
+        SCREEN.blit(MENU_LOGO, MENU_RECT)
 
         for button in [SINGLEPLAYER_BUTTON, MULTIPLAYER_BUTTON, RANKING_BUTTON, SETTINGS_BUTTON, QUIT_BUTTON]:
             button.changeColor(MENU_MOUSE_POS)

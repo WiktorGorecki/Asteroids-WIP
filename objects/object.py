@@ -41,15 +41,21 @@ class GameObject:
         return self.position[1] <= 0
 
     def handleTeleportation(self):
-        if self.handleCollisionLeft():
-            self.rectangle.move_ip(self.settings['width'], 0)
-        if self.handleCollisionRight():
-            self.rectangle.move_ip(-self.settings['width'], 0)
-        if self.handleCollisionTop():
-            self.rectangle.move_ip(0, self.settings['height'])
-        if self.handleCollisionDown():
-            self.rectangle.move_ip(0, -self.settings['height'])
+        width = self.settings['width']
+        height = self.settings['height']
+        if self.handleCollisionLeft() or self.handleCollisionRight() or self.handleCollisionDown() or self.handleCollisionTop():
+            self.position[0] %= width
+            self.position[1] %= height
 
+        # if self.handleCollisionLeft():
+        #     self.position[0] = self.settings['width']
+        # if self.handleCollisionRight():
+        #     self.position[0] = 0
+        # if self.handleCollisionTop():
+        #     self.position[1] = self.settings['height']
+        #     print(self.position[1])
+        # if self.handleCollisionDown():
+        #     self.position[1] = 0
 
     # def collides_with(self, other_obj):
     #     distance = self.position.distance_to(other_obj.position)
