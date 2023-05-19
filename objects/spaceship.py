@@ -16,6 +16,7 @@ class Spaceship(GameObject):
         self.keyLeft = pygame.K_LEFT
         self.keyRight = pygame.K_RIGHT
         self.color = "white"
+        self.turnSpeed = 1
 
     def draw(self, screen):
         # pygame.draw.rect(screen, "white", pygame.Rect(self.position, (self.width, self.height)), width=5)
@@ -39,12 +40,15 @@ class Spaceship(GameObject):
         #  pygame.mixer.music.stop()
 
         if keys[self.keyLeft]:
-            self.turn(0.5)
+            self.turn(self.turnSpeed)
         if keys[self.keyRight]:
-            self.turn(-0.5)
+            self.turn(-self.turnSpeed)
 
         if keys[self.keyUp]:
             self.velocity *= 1.01
+            speedingSound = pygame.mixer.Sound('./assets/rocketengine.wav')
+            pygame.mixer.Sound.play(speedingSound)
+            pygame.mixer.music.stop()
 
         if keys[self.keyDown]:
             self.velocity /= 1.01
@@ -58,7 +62,9 @@ class Bullet:
         self.settings = readSettings()
         self.width = 4
         self.height = 4
+        # self.rectangle = pygame.Rect(position, (self.width, self.height))
         self.rectangle = pygame.Rect(position, (self.width, self.height))
+
         self.color = "green"
 
     def draw(self, screen):
