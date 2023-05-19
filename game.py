@@ -4,13 +4,22 @@ from random import randrange
 
 
 import pygame
+
 from objects.object import GameObject
 from objects.spaceship import Spaceship
 from objects.asteroid import Asteroid
+
 from utils.get_font import get_font
+
+from screens.main_menu import main_menu
+from screens.rankingAddSingle import rankingAddSingle
+from utils import settings
+
 from utils.settings import readSettings
 from objects.spaceship import Bullet
 from pygame.math import Vector2
+from utils.scoreHandler import scoreHandler
+from utils.stats import stats
 
 
 class Game:
@@ -20,7 +29,7 @@ class Game:
         asteroidImg = pygame.image.load("assets/asteroid2.svg")
         self.settings = readSettings()
         self._init_pygame()
-        self.screen = pygame.display.set_mode((800, 600))
+        self.screen = pygame.display.set_mode((1280, 720))
         self.spaceship = Spaceship((400, 300), (0.2,0.2), shipImg)
         self.keyPressed = []
         self.asteroids = [Asteroid((randint(0, self.settings['width']), randint(0, self.settings['height'])), (0.1, 0.1), asteroidImg) for i in range(3)]
@@ -33,12 +42,14 @@ class Game:
     # def _get_game_objects(self):
     #     return [*self.asteroids, self.spaceship]
 
-    def main_loop(self):
+    def main_loop(self, SCREEN):
         while True:
             keys = pygame.key.get_pressed()
             self._handle_input(keys)
             self._process_game_logic()
             self._draw()
+            if stats["healthPoints"] == 0:
+                rankingAddSingle(SCREEN, stats["score"])
 
 
 
@@ -79,12 +90,20 @@ class Game:
 
         for bullet in self.bullets:
             bullet.move()
+            if bullet.handleCollisionDown() or bullet.handleCollisionTop() or bullet.handleCollisionLeft() or bullet.handleCollisionRight():
+                self.bullets.remove(bullet)
 
 
         for asteroid in self.asteroids:
             if self.spaceship.collision(asteroid):
                 # print("collision")
+                collisionSound = pygame.mixer.Sound('./assets/meteorecrush.wav')
+                pygame.mixer.Sound.play(collisionSound)
+                pygame.mixer.music.stop()
+
                 self.spaceship.color = "red"
+                self.asteroids.remove(asteroid)
+                scoreHandler("onShipHit")
             else:
                 self.spaceship.color = "white"
 
@@ -93,6 +112,10 @@ class Game:
                 if bullet.collision(asteroid):
                 # print("collision")
                     bullet.color = "red"
+                    asteroid.health -= 1
+                    scoreHandler("onAsteroidHit")
+                    if asteroid.checkDestroy():
+                        self.asteroids.remove(asteroid)
                 else:
                     bullet.color = "green"
 
