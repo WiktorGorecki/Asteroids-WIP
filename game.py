@@ -80,7 +80,7 @@ class Game:
             bulletPosition = (px, py)
             pygame.draw.rect(self.screen, "blue", pygame.Rect(bulletPosition, (5, 5)))
             # print(self.spaceship.angle)
-            # self.bullets.append(Bullet(bulletPosition, (self.spaceship.velocity).rotate(self.spaceship.angle), self.spaceship.angle))
+
             self.bullets.append(Bullet(bulletPosition, (self.spaceship.velocity*5).rotate(self.spaceship.angle), self.spaceship.angle))
 
     def _process_game_logic(self):
@@ -150,27 +150,3 @@ class Game:
             bullet.draw(self.screen)
 
         pygame.display.flip()
-
-
-
-# def _process_game_logic(self):
-#     for game_object in self._get_game_objects():
-#         game_object.move(self.screen)
-#
-#     if self.spaceship:
-#         for asteroid in self.asteroids:
-#             if asteroid.collides_with(self.spaceship):
-#                 self.spaceship = None
-#                 break
-#
-#     for bullet in self.bullets[:]:
-#         for asteroid in self.asteroids[:]:
-#             if asteroid.collides_with(bullet):
-#                 self.asteroids.remove(asteroid)
-#                 self.bullets.remove(bullet)
-#                 asteroid.split()
-#                 break
-#
-#     for bullet in self.bullets[:]:
-#         if not self.screen.get_rect().collidepoint(bullet.position):
-#             self.bullets.remove(bullet)

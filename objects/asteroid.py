@@ -18,7 +18,7 @@ class Asteroid(GameObject):
     def draw(self, screen):
         # pygame.draw.rect(screen, "white", pygame.Rect(self.position, (self.width, self.height)), width=5)
         # pygame.draw.rect(screen, "white", self.surface.get_rect(topleft=(self.position[0], self.position[1])), width=5)
-        pygame.draw.rect(screen, "white", self.rectangle, width=5)
+        pygame.draw.rect(screen, "white", self.rectangle, width=2)
         screen.blit(self.surface, self.position)
 
     def turn(self, angle):
