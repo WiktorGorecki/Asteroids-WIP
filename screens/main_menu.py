@@ -43,7 +43,7 @@ def main_menu(SCREEN):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if SINGLEPLAYER_BUTTON.checkForInput(MENU_MOUSE_POS):
                     from game import Game
-                    game = Game()
+                    game = Game(SCREEN)
                     game.main_loop(SCREEN)
                 if MULTIPLAYER_BUTTON.checkForInput(MENU_MOUSE_POS):
                     multiplayer(SCREEN)

@@ -21,14 +21,14 @@ from utils.stats import stats
 from utils.discord import getApp
 
 class Game:
-    def __init__(self):
+    def __init__(self, SCREEN):
         print("Debug: Resetting stats")
         stats['score'] = 0
         stats['healthPoints'] = 3
         shipImg = pygame.image.load("assets/ship.svg")
         asteroidImg = pygame.image.load("assets/asteroid2.svg")
         self.settings = readSettings()
-        self.screen = pygame.display.set_mode((1280, 720))
+        self.screen = SCREEN
         self.spaceship = Spaceship((400, 300), (2,2), shipImg)
         self.keyPressed = []
         self.asteroids = [Asteroid((0.8, 0.8), asteroidImg) for i in range(10)]
