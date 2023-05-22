@@ -5,6 +5,7 @@ from pygame import QUIT, KEYDOWN, MOUSEBUTTONDOWN, FULLSCREEN, DOUBLEBUF, SCALED
 from game import Game
 from screens.rankingAddDouble import rankingAddDouble
 from screens.rankingAddSingle import rankingAddSingle
+from utils.discord import setActivity
 from utils.settings import readSettings
 from screens.tmpScreen import tmpScreen
 from screens.main_menu import main_menu
@@ -30,6 +31,8 @@ else:
 SCREEN = pygame.display.set_mode((settings["width"], settings["height"]), flags, 1)
 SCREEN.set_alpha(None)  # No alpha channel
 pygame.display.set_caption("Asteroids")
+if settings["discord"]:
+    setActivity()
 
 main_menu(SCREEN)
 # game = Game()

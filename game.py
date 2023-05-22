@@ -18,7 +18,7 @@ from objects.spaceship import Bullet
 from pygame.math import Vector2
 from utils.scoreHandler import scoreHandler
 from utils.stats import stats
-
+from utils.discord import getApp
 
 class Game:
     def __init__(self):
@@ -41,7 +41,7 @@ class Game:
     #     return [*self.asteroids, self.spaceship]
 
     def main_loop(self, SCREEN):
-        while True:
+        while 1:
             keys = pygame.key.get_pressed()
             self._handle_input(keys)
             self._process_game_logic()
@@ -50,6 +50,8 @@ class Game:
                 rankingAddSingle(SCREEN, stats["score"])
 
             self.clock.tick(60)
+            if readSettings()["discord"]:
+                getApp().run_callbacks()
 
     def _handle_input(self, keys):
         for event in pygame.event.get():
